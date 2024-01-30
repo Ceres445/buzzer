@@ -24,6 +24,7 @@ const getData = () => ({
 app.use(express.static('public'))
 app.set('view engine', 'pug')
 
+app.use('/.netlify/functions/server', router);  // path must route to lambda
 app.get('/', (req, res) => res.render('index', { title }))
 app.get('/host', (req, res) => res.render('host', Object.assign({ title }, getData())))
 
@@ -47,4 +48,6 @@ io.on('connection', (socket) => {
   })
 })
 
-server.listen(8090, () => console.log('Listening on 8090'))
+// server.listen(8090, () => console.log('Listening on 8090'))
+module.exports = app;
+module.exports.handler = serverless(app);

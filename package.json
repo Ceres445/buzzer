@@ -12,6 +12,9 @@
   "dependencies": {
     "express": "4.14.1",
     "pug": "2.0.0-beta11",
-    "socketio": "1.0.0"
+    "socketio": "1.0.0", 
+    "netlify-lambda": "^1.6.3",
+    "serverless-http": "^2.3.0"
+
   }
 }
